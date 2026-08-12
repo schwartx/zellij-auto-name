@@ -1,0 +1,9 @@
+[package]
+name = "zellij-auto-name"
+version = "0.1.0"
+edition = "2021"
+description = "Headless Zellij plugin: auto-name tabs and panes from cwd + foreground command"
+license = "MIT"
+
+[dependencies]
+zellij-tile = "0.44.3"

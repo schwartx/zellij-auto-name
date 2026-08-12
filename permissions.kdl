@@ -1,0 +1,6 @@
+// Copy to: ~/.cache/zellij/permissions.kdl
+// Keys must match plugin location Display (absolute path, no file: prefix)
+"/home/ichika/.dotfiles/zellij/plugins/zellij-auto-name.wasm" {
+    ReadApplicationState
+    ChangeApplicationState
+}
