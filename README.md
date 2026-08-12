@@ -33,14 +33,26 @@ Every terminal pane title:
 
 Not handled here. Background plugins often fail to route `RenameSession`; use a shell hook / CLI if you need it (e.g. fish `zellij_session_name.fish`).
 
-## Build & install
+## Install
+
+### From GitHub Release
+
+Push a tag `v*` to trigger CI; the release ships `zellij-auto-name.wasm`.
+
+```bash
+mkdir -p ~/.config/zellij/plugins
+curl -fsSL -o ~/.config/zellij/plugins/zellij-auto-name.wasm \
+  "https://github.com/schwartx/zellij-auto-name/releases/latest/download/zellij-auto-name.wasm"
+```
+
+### From source
 
 ```bash
 rustup target add wasm32-wasip1
 ./build.sh
 ```
 
-`build.sh` builds `wasm32-wasip1` and installs to:
+`build.sh` builds for `wasm32-wasip1` and installs to:
 
 ```text
 ~/.dotfiles/zellij/plugins/zellij-auto-name.wasm
@@ -52,6 +64,15 @@ Manual install elsewhere:
 cargo build --release --target wasm32-wasip1
 cp target/wasm32-wasip1/release/zellij-auto-name.wasm ~/.config/zellij/plugins/
 ```
+
+### Publish a release
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+GitHub Actions builds the WASM and creates a Release with the artifact.
 
 ## Load
 
